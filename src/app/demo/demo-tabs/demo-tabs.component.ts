@@ -6,10 +6,15 @@ import {Component, OnInit, ViewChild} from '@angular/core';
     styleUrls: ['./demo-tabs.component.scss']
 })
 export class DemoTabsComponent implements OnInit {
+    @ViewChild('primaryForm') primaryForm;
+    @ViewChild('phoneForm') phoneForm;
+
     loading: boolean;
     info: any;
-    @ViewChild('primaryForm', { static: false }) primaryForm;
-    @ViewChild('phoneForm', { static: false }) phoneForm;
+    accent: boolean;
+    fillBackground: boolean;
+    themeInkBar: boolean;
+    topIcon: boolean;
 
     constructor() {
         this.info = {};

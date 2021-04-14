@@ -19,7 +19,7 @@
     & + ::ng-deep ui-snackbar:not(.nothing) {
         position: absolute;
         z-index: -1;
-        transform: translateY(100%);
+        transform: translateY(150%);
         bottom: initial;
     }
 
@@ -29,7 +29,7 @@
 
     @include desktop {
         min-width: 288px;
-        margin: 16px 16px;
+        margin: 16px;
         border-radius: 2px;
         max-width: 568px;
         width: auto;
@@ -39,7 +39,7 @@
             bottom: 0;
 
             &.leave {
-                transform: translateY(110%); //Suporte para margin
+                transform: translateY(150%); //Suporte para margin
                 transform: translateY(calc(100% + 16px));
             }
         }
@@ -52,9 +52,6 @@
         min-height: 48px;
         display: flex;
         align-items: center;
-    }
-
-    .text {
         margin-right: 24px;
     }
 
@@ -64,9 +61,21 @@
     }
 
     &.center {
+        position: absolute;
+        bottom: 0;
         margin: 0 auto;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
+        transform: translateX(-50%);
+        left: 50%;
+
+        &:first-child {
+            animation: enter-snackbar-center 280ms ui-easing('deceleration');
+        }
+
+        &.leave {
+            transform: translateY(100%) translateX(-50%);
+        }
     }
 
     ::ng-deep [uiRipple].ui-button:not(.success):not(.warning):not(.error):not(:disabled).flat.accent .ui-ripple-wave {
@@ -87,6 +96,16 @@
     }
     100% {
         transform: translateY(0);
+    }
+}
+
+
+@keyframes enter-snackbar-center {
+    0% {
+        transform: translateY(100%) translateX(-50%);
+    }
+    100% {
+        transform: translateY(0) translateX(-50%);
     }
 }
 

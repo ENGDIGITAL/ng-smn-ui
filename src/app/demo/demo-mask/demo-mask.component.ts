@@ -22,6 +22,7 @@ export class DemoMaskComponent implements OnInit {
     timeCustom;
     truecnpj;
     truecpf;
+    testeCpf: any = {};
 
     constructor() {
     }
@@ -31,6 +32,7 @@ export class DemoMaskComponent implements OnInit {
         this.truecpf = '777777';
         this.padcpf = '888888';
         this.cnpj = 888888;
+        this.phonei = 5511111111111;
 
         setTimeout(() => {
             this.date = new Date().toISOString();
